@@ -16,7 +16,9 @@ int mostFreqEle(vector<int>& arr) {
             maxfreq = it.second;
             value = it.first;
         }
-        else if(it.second == maxfreq && it.first > value){
+        // Check the if loop below. This condition changes acc to the qs.
+        // ( if two numbers occur with same freq then which to be given output as ? larger or smaller ? )
+        else if(it.second == maxfreq && it.first > value){ 
             value = it.first;
         }
     }
