@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Search GCD EULCLIDEAN LOGIC on yt for better understanding. [ channel - Learn Math Tutorials ]
 int gcd(int a, int b) {
     while(b!=0){
         int temp = a%b;
