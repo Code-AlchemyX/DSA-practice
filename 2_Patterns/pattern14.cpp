@@ -1,8 +1,8 @@
-// 1 
-// 0 1 
-// 1 0 1 
-// 0 1 0 1 
-// 1 0 1 0 1
+// A
+// AB
+// ABC
+// ABCD
+// ABCDE
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -10,14 +10,13 @@ using namespace std;
 class Pattern
 {
 public:
-    void pattern11(int n){
+    void pattern14(int n){
         for(int i=0; i<n; i++){
+            char letter = 'A';
+            
             for(int j=0; j<i+1; j++){
-                if( (i+j)%2 == 0 ){
-                    cout << "1";
-                }else{
-                    cout << "0";
-                } 
+                cout << letter;
+                letter +=1;
             }
             cout << endl;
         }
@@ -31,7 +30,7 @@ int main()
     cin >> n;
 
     Pattern p;
-    p.pattern11(n);
+    p.pattern14(n);
 
     return 0;
 }
