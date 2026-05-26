@@ -1,3 +1,38 @@
+//!================================= METHOD 1 ( EASY to understand )====================================== 
+
+//* Logic ----->
+
+class Solution {
+  public:
+    void Reverse(vector<int>& arr, int low, int high){
+        while(low<high){
+            swap(arr[low] , arr[high]);
+            low++;
+            high--;
+        }    
+    }
+        
+    void rotateArr(vector<int>& arr, int d) {
+        int n = arr.size();    
+        if(d>=n){
+            d %= n;
+        }
+        
+        //Step 1
+        Reverse(arr, 0, d-1);
+        
+        //Step 2
+        Reverse(arr, d, n-1);
+        
+        //Step 3
+        Reverse(arr, 0, n-1);
+        
+    }
+};
+
+
+
+//!==================================== METHOD 2 =========================================== 
 #include<bits/stdc++.h>
 using namespace std;
 
