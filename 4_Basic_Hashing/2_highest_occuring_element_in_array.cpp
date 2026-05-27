@@ -1,3 +1,5 @@
+//! ===================== Solution using unordered map =============================
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -9,7 +11,7 @@ int mostFreqEle(vector<int>& arr) {
     }
         
     int maxfreq= 0;
-    int value = -1;
+    int value = arr[0];
         
     for(auto it : map){
         if(it.second > maxfreq){
@@ -36,3 +38,31 @@ int main(){
 
     cout << mostFreqEle(arr);
 }
+
+//! =================== Solution using MAP =======================
+
+//* Must know --> why use unordered map and not map.
+
+
+class Solution {
+  public:
+    int mostFreqEle(vector<int>& arr) {
+        
+        map<int,int> mp;
+        for(auto it : arr){
+            mp[it]++;
+        }
+        
+        int max_freq = 0;
+        int result = arr[0];
+        
+        for(auto it : mp){
+            if(it.second >= max_freq){
+                max_freq = it.second;
+                result = it.first;
+            }
+        }
+        
+        return result;
+    }
+};
