@@ -1,3 +1,5 @@
+//! This code is written according to the GFG qs not the striver sheet. [Qs are same but limits differ]
+
 #include<bits/stdc++.h>
 using namespace std;
 
