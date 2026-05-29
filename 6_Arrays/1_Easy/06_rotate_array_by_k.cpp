@@ -1,5 +1,5 @@
-//!================================= METHOD 1 ( EASY to understand )====================================== 
-
+//!================================= METHOD 1 ( Always prefer this solution )====================================== 
+//* This method is best even tho they have same time complexity as this method doesn't need an extra array , it updates array in place. 
 //* Logic ----->
 
 class Solution {
