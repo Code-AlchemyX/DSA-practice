@@ -1,6 +1,9 @@
-//! ========================= Brute force --> Any sorting methods ===========================
+//! Brute Force O(n^2) --> Two loops, count frequency of each element, return if count > n/2.
+
 
 //! ==================================== Better approach ====================================
+//! HashMap O(n) time, O(n) space : Store frequencies in map, return element with freq > n/2.
+
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -20,6 +23,7 @@ public:
         return -1;
     }
 };
+
 
 
 //!============================== Optimal approach --> Moore's Voting method ==============================
