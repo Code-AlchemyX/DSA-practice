@@ -1,3 +1,9 @@
+//! Brute force O(n²) --> Two loops, for each element count its frequency, return element with frequency 1.
+
+//! Better Approach --> Hashmaps.
+
+//! Optimal approach --> XOR operation.
+
 #include<bits/stdc++.h>
 using namespace std;
 
