@@ -29,8 +29,6 @@ public:
                 matrix[i][col] = 0;
             }
         }
-
-
     }
 };
 
