@@ -1,3 +1,22 @@
+//! Basic idea of insertion sort ( just for understanding the logic not to be used in general ).
+void insertionSort(int* arr, int n) {
+    for(int i = 1; i < n; i++) {
+        int prev = i - 1; 
+        
+        while(prev >= 0 && arr[prev] > arr[prev+1]) {
+            // swap(arr[prev+1], arr[prev]);
+            int temp = arr[prev];
+            arr[prev] = arr[prev+1];
+            arr[prev+1] = temp;
+            
+            prev--; 
+        }
+    }
+}
+
+// =====================================================================================================================
+
+
 #include<bits/stdc++.h>
 using namespace std;
 
