@@ -2,6 +2,8 @@
 //* This method is best even tho they have same time complexity as this method doesn't need an extra array , it updates array in place. 
 //* Logic ----->
 
+
+//* Rotate to left by d.
 class Solution {
   public:
     void Reverse(vector<int>& arr, int low, int high){
@@ -30,6 +32,32 @@ class Solution {
     }
 };
 
+
+//* Rotate to right by d;
+
+class Solution {
+public:
+    void reverse(vector<int>& nums, int low, int high){
+        while(low < high){
+            swap(nums[low] , nums[high]);
+            low++;
+            high--;
+        }
+    }
+
+    void rotate(vector<int>& nums, int d) {
+        int n = nums.size();
+
+        if(d >= n){
+            d%=n;
+        }
+
+        reverse(nums, n-d, n-1);
+        reverse(nums, 0, n-d-1);
+        reverse(nums, 0, n-1);
+
+    }
+};
 
 
 //!==================================== METHOD 2 =========================================== 

@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
+//! =========================================== Brute Force ===========================================
 
 vector<int> removeDuplicates(vector<int> &arr) {
     vector<int> temp;
@@ -15,19 +14,24 @@ vector<int> removeDuplicates(vector<int> &arr) {
     return temp;
 }
 
-int main(){
-    int n;
-    cin >> n;
-    vector<int> arr(n);
+//! =========================================== Optimal Approach ===========================================
 
-    for(int i=0; i<n; i++){
-        cin >> arr[i];
+class Solution {
+  public:
+    vector<int> removeDuplicates(vector<int> &arr) {
+        int n = arr.size();
+        int i = 0;  // tracks last unique element position
+        
+        for(int j=1; j<n; j++){
+            if(arr[j] != arr[i]){  // new unique element found
+                i++;
+                arr[i] = arr[j];   // place it at next position
+            }
+        }
+        
+        // first i+1 elements are unique
+        return vector<int>(arr.begin(), arr.begin()+i+1);
     }
+};
 
-    vector<int> result = removeDuplicates(arr);
-    for(int i=0; i<result.size(); i++){
-        cout << result[i]<<" ";
-    }
-
-    return 0;
-}
+//* return i --> if qs asks to return how many unique numbers are there.

@@ -1,5 +1,4 @@
-#include<bits/stdc++.h>
-using namespace std;
+//! ============================================= Brute Force =============================================
 
 vector<int> findUnion(vector<int> &a, vector<int> &b) {
     vector<int> merged;
@@ -23,31 +22,74 @@ vector<int> findUnion(vector<int> &a, vector<int> &b) {
     return temp;
 }
 
-int main(){
-    int n,m;
-    cout << "Enter size of array 1 : ";
-    cin >> n;
-    vector<int> a(n);
-    
-    cout << "Enter elements of array 1 : ";
-    for(int i=0; i<n; i++){
-        cin >> a[i];
+
+//! OR ------------> 
+
+class Solution {
+  public:
+    vector<int> findUnion(vector<int> &a, vector<int> &b) {
+        set<int> st;
+        vector<int> result;
+        
+        for(auto it : a){
+            st.insert(it);
+        }
+        
+        for(auto it : b){
+            st.insert(it);
+        }
+        
+        for(auto it : st){
+            result.push_back(it);
+        }
+        
+        
+        return result;
     }
+};
 
-    cout << "Enter size of array 2 : ";
-    cin >> m;
-    vector<int> b(m);
-    
-    cout << "Enter elements of array 2 : ";
-    for(int i=0; i<m; i++){
-        cin >> b[i];
+
+//! ============================================ Optimal Approach ============================================
+
+class Solution {
+  public:
+    vector<int> findUnion(vector<int> &a, vector<int> &b) {
+        int n = a.size();
+        int m = b.size();
+        
+        int i = 0;
+        int j = 0;
+        
+        vector<int> Union;
+        
+        while( i < n && j < m ){
+            if( a[i] <= b[j] ){
+                if( Union.size() == 0 || Union.back() != a[i] ){
+                    Union.push_back(a[i]);
+                }
+                i++;
+            } else if( a[i] >= b[j] ){
+                if( Union.size() == 0 || Union.back() != b[j] ){
+                    Union.push_back(b[j]);
+                }
+                j++;
+            }
+        }
+        
+        while(i<n){
+            if( Union.size() == 0 || Union.back() != a[i] ){
+                Union.push_back(a[i]);
+            }
+            i++;
+        }
+        
+        while(j<m){
+            if( Union.size() == 0 || Union.back() != b[j] ){
+                Union.push_back(b[j]);
+            }
+            j++;
+        }
+        
+        return Union;
     }
-
-    vector<int> result = findUnion(a , b);
-
-    for(int i=0; i<result.size(); i++){
-        cout << result[i]<<" ";
-    }
-
-    return 0;
-}
+};
