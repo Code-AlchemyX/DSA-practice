@@ -1,5 +1,7 @@
 //! Brute Force --> Linear Search.
 
+//! Can also use --> lb = lower_bound(arr.begin() , arr.end() , x) - arr.begin();  --> returns min index.
+
 //! Optimal Approach -->
 
 class Solution {
