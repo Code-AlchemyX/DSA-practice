@@ -1,6 +1,8 @@
 //! Brute Force ----> Linear search 
 
-//! Better  approach --> Staircase method --> TC = O(log(m+n))
+//! Better approach 1 --> Run two loops .. the outer loop will track rows and inner loop will do a binary search.  TC = O(n*log m)
+
+//! Better approach 2 (comparatively better in TC than better approach 1) --> Staircase method --> TC = O(log(m+n))
 
 class Solution {
 public:
