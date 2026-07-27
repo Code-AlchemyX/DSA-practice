@@ -1,3 +1,29 @@
+//! Brute force 
+//! Number of rotation = index of minimum number in array
+
+class Solution {
+  public:
+    int findKRotation(vector<int> &arr) {
+        int n = arr.size();
+        int mini = INT_MAX;
+        int min_index = 0;
+        
+        for(int i=0; i<n; i++){
+            if(arr[i] < mini){
+                mini = arr[i];
+                min_index = i;
+            }
+        }
+        
+        return min_index;
+    }
+};
+
+// ===================================================================================
+
+//! Optimal Solution
+
+
 class Solution {
   public:
     int findKRotation(vector<int> &arr) {
