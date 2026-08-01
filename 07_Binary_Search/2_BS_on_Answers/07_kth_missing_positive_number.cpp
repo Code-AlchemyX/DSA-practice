@@ -40,3 +40,27 @@ public:
 
 //! =========================================== Optimal Approach ===========================================
 
+// Dry run and derivation of the formula and logic is MUST ... Or else you'll be blank.
+
+class Solution {
+public:
+    int findKthPositive(vector<int>& arr, int k) {
+        int n = arr.size();
+        int low = 0, high = n-1;
+
+        while(low <= high){
+            int mid = (low+high)/2;
+
+            int missing_count = arr[mid] - mid - 1;
+
+            if(missing_count < k){
+                low = mid +1;
+            }
+            else {
+                high = mid -1;
+            }  
+        }
+
+        return low + k;
+    }
+};
