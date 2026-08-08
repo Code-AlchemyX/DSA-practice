@@ -1,4 +1,4 @@
-//! Optimal 1 --> but SC = O()
+//! Sub-Optimal 1 --> TC = O(n) SC = O(k) k = number of unique chars.
 
 class Solution {
 public:
@@ -19,7 +19,24 @@ public:
     }
 };
 
-//! Optimal 2 
+//! Optimal 2 --> TC = O(n) and SC = O(1)
 
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        if (s.size() != t.size()) return false;
 
+        int mapS[26] = {0};
 
+        for (int i = 0; i < s.size(); i++) {
+            mapS[s[i] - 'a']++;
+            mapS[t[i] - 'a']--;
+        }
+
+        for (int count : mapS) {
+            if (count != 0) return false;
+        }
+
+        return true;
+    }
+};
