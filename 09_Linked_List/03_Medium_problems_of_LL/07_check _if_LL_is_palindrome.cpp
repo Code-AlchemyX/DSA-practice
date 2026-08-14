@@ -91,7 +91,7 @@ public:
 
 
 
-//! The code above is OPTIMAL too.... but in an interview changing the given input is considered as bad practice and hence we return our original array after palindrome check.
+//! The code above and this code both are OPTIMAL .... but in an interview changing the given input is considered as bad practice and hence we return our original array after palindrome check.
 class Solution {
 private:
     ListNode* reverseList(ListNode* head) {
