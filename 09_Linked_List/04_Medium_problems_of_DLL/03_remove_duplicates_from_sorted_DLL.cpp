@@ -63,15 +63,14 @@ class Solution {
             if (curr->data == curr->next->data) {
                 Node* duplicate = curr->next;
                 
-                // Re-link around the duplicate node
                 curr->next = duplicate->next;
                 if (duplicate->next != nullptr) {
                     duplicate->next->prev = curr;
                 }
                 
-                delete duplicate; // Prevents memory leak
+                delete duplicate; 
             } else {
-                curr = curr->next; // Only advance when no duplicate was found
+                curr = curr->next; 
             }
         }
 
