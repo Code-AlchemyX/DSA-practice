@@ -78,3 +78,48 @@ class Solution {
 
 //! Optimal approach 
 
+/* Structure of Doubly Linked List Node
+class Node {
+  public:
+    int data;
+    Node *next;
+    Node *prev;
+
+    Node(int val) {
+        data = val;
+        next = nullptr;
+        prev = nullptr;
+    }
+}; */
+
+class Solution {
+  public:
+    vector<vector<int>> givenSumPairs(Node* head, int target) {
+        vector<vector<int>> ans;
+        if(head == nullptr) return ans;
+        
+        Node* first = head;
+        Node* second = head;
+        while(second->next != nullptr){
+            second = second->next;
+        }
+        
+        while(first != second && second->next != first){
+            int current_sum = first->data + second->data;
+            
+            if(current_sum == target){
+                ans.push_back({first->data , second->data});
+                first = first->next;
+                second = second->prev;
+            }
+            else if(current_sum < target){
+                first = first->next;
+            }
+            else {
+                second = second->prev;
+            }
+        }
+        
+        return ans;
+    }
+};
