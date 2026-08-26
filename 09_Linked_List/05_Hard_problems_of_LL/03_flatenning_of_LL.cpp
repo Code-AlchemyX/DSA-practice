@@ -93,3 +93,47 @@ class Solution {
 
 //! Optimal Approach
 
+/* Structure of Linked List Node
+class Node {
+public:
+    int data;
+    Node* next;
+    Node* bottom;
+
+    Node(int x) {
+        data = x;
+        next = nullptr;
+        bottom = nullptr;
+    }
+};*/
+class Solution {
+public:
+    Node* merge(Node* a, Node* b) {
+        Node dummy(0);
+        Node* t = &dummy;
+
+        while(a && b) {
+            if(a->data <= b->data) {
+                t->bottom = a;
+                a = a->bottom;
+            } else {
+                t->bottom = b;
+                b = b->bottom;
+            }
+            t = t->bottom;
+        }
+
+        t->bottom = a ? a : b;
+
+        return dummy.bottom;
+    }
+
+    Node* flatten(Node* head) {
+        if(!head || !head->next)
+            return head;
+
+        head->next = flatten(head->next);
+
+        return merge(head, head->next);
+    }
+};
