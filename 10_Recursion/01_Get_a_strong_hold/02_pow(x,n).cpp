@@ -1,3 +1,26 @@
+//! Brute Force  
+
+class Solution {
+public:
+    double myPow(double x, int n) {
+        if (n == 0) return 1.0;
+        
+        long long exp = n;
+        if (exp < 0) {
+            x = 1 / x;
+            exp = -exp;
+        }
+        
+        double ans = 1.0;
+        for (long long i = 0; i < exp; i++) {
+            ans *= x;
+        }
+        
+        return ans;
+    }
+};
+
+
 //! Iterative approach
 
 class Solution {
