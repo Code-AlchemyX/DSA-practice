@@ -204,3 +204,47 @@ using namespace std;
 //     cout << func(n) << endl;
 //     return 0;
 // }
+
+
+//! Reverse an array 
+
+// void reverse(int arr[], int i, int n){
+//     if(i >= n/2) return;
+//     swap(arr[i] , arr[n-1-i]);
+//     reverse(arr, i+1, n);
+// }
+
+// int main(){
+//     int n;
+//     cout << "Enter size : ";
+//     cin >> n;
+//     int arr[n];
+
+//     for(int i=0; i<n; i++) cin >> arr[i];    
+//     reverse(arr, 0 , n);
+//     for(int i=0; i<n; i++) cout << arr[i] << " ";
+
+//     return 0;
+// }
+
+
+//! Fibonacci series 
+
+// int fibo(int n){
+//     if(n <= 1){
+//         return n;
+//     }
+
+//     return fibo(n-1) + fibo(n-2);
+// }
+
+// int main(){
+//     int n;
+//     cout << "Enter n : ";
+//     cin >> n;
+
+//     int ans = fibo(n);
+//     cout << ans << endl;
+
+//     return 0;
+// }
