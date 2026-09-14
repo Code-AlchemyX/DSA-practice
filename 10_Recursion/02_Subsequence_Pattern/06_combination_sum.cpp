@@ -2,6 +2,7 @@
 
 //* All three are exponential backtracking approaches in the worst case. The third adds O(N log N) sorting but enables stronger pruning with break, so it is generally more efficient in practice while having the same asymptotic exponential nature.
 
+//Pruning in backtracking = stopping a branch as soon as you know it cannot possibly give a valid answer.
 
 //! -----------------------------------------------------------------------------------------------
 //! The one sheet expects us todo -->  PICK / NOT PICK method
