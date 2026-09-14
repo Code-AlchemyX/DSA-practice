@@ -2,37 +2,77 @@
 
 class Solution {
 public:
-    vector<string> generateBinaryStrings(int n) {
-        vector<string> ans;
 
-        for (int num = 0; num < (1 << n); num++) {
-            string s = "";
-
-            for (int i = n - 1; i >= 0; i--) {
-                if (num & (1 << i))
-                    s += '1';
-                else
-                    s += '0';
-            }
-
-            bool valid = true;
-
-            for (int i = 1; i < n; i++) {
-                if (s[i] == '1' && s[i - 1] == '1') {
-                    valid = false;
-                    break;
-                }
-            }
-
-            if (valid)
-                ans.push_back(s);
+    bool isValid(string s) {
+        for(int i = 1; i < s.size(); i++) {
+            if(s[i] == '1' && s[i - 1] == '1')
+                return false;
         }
 
-        return ans;
+        return true;
+    }
+
+    void generate(string s, vector<string>& result, int n) {
+
+        if(s.size() == n) {
+            if(isValid(s))
+                result.push_back(s);
+
+            return;
+        }
+
+        // Choose 0
+        s.push_back('0');
+        generate(s, result, n);
+        s.pop_back();
+
+        // Choose 1
+        s.push_back('1');
+        generate(s, result, n);
+        s.pop_back();
+    }
+
+    vector<string> generateBinaryStrings(int n) {
+
+        string s;
+        vector<string> result;
+
+        generate(s, result, n);
+
+        return result;
     }
 };
 
 
 
+
 //! Optimal Approach
 
+class Solution {
+public:
+    void generate(string s , vector<string> &result , int n){
+        if(s.size() == n){
+            result.push_back(s);
+            return;
+        }
+
+        s.push_back('0');
+        generate(s , result , n);
+        s.pop_back();
+
+        if(s.empty() || s.back() != '1'){
+            s.push_back('1');
+            generate(s , result , n);
+            s.pop_back();
+        }
+    }
+
+    vector<string> generateBinaryStrings(int n) {
+        string s;
+        vector<string> result;
+
+        generate(s , result , n);
+
+        return result;
+    }
+};
