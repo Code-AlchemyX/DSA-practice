@@ -2,25 +2,26 @@
 
 class Solution {
   public:
-    void insertSorted(stack<int> &st, int val){
-        if(st.empty() || val >= st.top()){
+    void insertSorted(stack<int> &st , int val){
+        if(st.empty() || st.top() <= val){
             st.push(val);
             return;
-        }        
+        }
         
-        int currVal = st.top();
+        int insert = st.top();
         st.pop();
         
-        insertSorted(st, val);
-    
-        st.push(currVal);
+        insertSorted(st , val);
+        
+        st.push(insert);
     }
     
-    void sortStack(stack<int> &st) {
+    void sortStack(stack<int> &st) {    
         int n = st.size();
-        stack<int> temp;
         
-        if(n <= 1) return;
+        if(n <= 1){
+            return;
+        }
         
         int val = st.top();
         st.pop();
